@@ -618,7 +618,7 @@ def evaluate_algorithms(X_train, y_train, X_test, y_test, algorithms,lambda_):
 
 # Main loop to go through each dataset
 i=0
-Lambda=[0.002,0.2,0.01,0.09,0.1,0.2,0.5,0.1]
+Lambda=[0.002,0.2,0.01,0.05,0.1,0.05,0.5,0.1]
 
 for dataset in datasets:
     lambda_=Lambda[i]
