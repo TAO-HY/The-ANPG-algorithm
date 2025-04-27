@@ -11,7 +11,7 @@ def ANPG(A, b, lambda_, t, x0):
     epsilon = 1e-6# stopping criterion
     x = x0
     alpha=np.linalg.norm(A.T @ A,2)
-    t=np.maximum(t*0.99,0.99*lambda_/alpha)
+    
     n = len(x)
     s = lambda_ / t
     #hzt = np.sum(np.maximum(x - t, 0) + np.maximum(0, -x - t))
@@ -21,6 +21,10 @@ def ANPG(A, b, lambda_, t, x0):
     t1=1
     
     for iter in range(1000):
+        if iter%5==0:
+            t=np.maximum(t*0.999,0.00005)
+        t=np.maximum(t*0.9999,0.00005)
+        s = lambda_ / t
         II= np.zeros(n)
         #x_i>=nu时d_i=2，x_i<=-nu时II=3，其余II=1
         II=(x>=t)*1+(x<=-t)*(-1)
