@@ -29,7 +29,7 @@ def ASPG(A, b, lambda_, t, x0):
         x = np.sign(w) * np.maximum(np.abs(w) - s / alpha, 0)
         t1 = copy.deepcopy(t2)
 
-        if iter > 1 and np.linalg.norm(x - x_old) / np.linalg.norm(x_old) < epsilon:
+        if  np.linalg.norm(x - x_old) / (np.maximum(np.linalg.norm(x),1)) < epsilon:
             break
 
     return x
