@@ -11,13 +11,15 @@ def ASPG(A, b, lambda_, t, x0):
     epsilon = 1e-6 # stopping criterion
     x = x0
     alpha = np.linalg.norm(A.T @ A, 2)
-    t = t * 0.99
     n = len(x)
     s = lambda_ / t
     x_old = copy.deepcopy(x)
     t1 = 1
 
     for iter in range(1000):
+        if (iter+1) % 5 == 0:
+            t = np.maximum(t * 0.999, 1e-8)
+        s = (lambda_ / t)
         II = np.zeros(n)
         II = (x >= t) * 1 + (x <= -t) * (-1)
         t2 = np.sqrt(t1**2 + 2 * t1)
