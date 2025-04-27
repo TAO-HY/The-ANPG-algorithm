@@ -22,7 +22,7 @@ def ANPG(A, b, lambda_, t, x0):
     
     for iter in range(1000):
         if iter%5==0:
-            t=np.maximum(t*0.999,0.00005)
+            t=np.maximum(t*0.999,1e-8)
         s = lambda_ / t
         II= np.zeros(n)
         #x_i>=nu时d_i=2，x_i<=-nu时II=3，其余II=1
