@@ -36,7 +36,6 @@ def ANPG(A, b, lambda_, t, x0):
         x_old=copy.deepcopy(x)
         x=np.sign(w)*np.maximum(abs(w)-s/alpha,0)
         t1=copy.deepcopy(t2)
-        #如果iter>1且||x-x_old=0||<epsilon，停止迭代
         
         if np.linalg.norm(x-x_old)/(np.maximum(np.linalg.norm(x),1))<epsilon:
             break
