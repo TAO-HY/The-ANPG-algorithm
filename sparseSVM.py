@@ -7,39 +7,31 @@ from sklearn.model_selection import train_test_split
 from scipy.linalg import norm
 
 ####################################定义ANPG########################################################################
-def ANPG(A, b, lambda_, t, x0):
-    epsilon = 1e-6# stopping criterion
+def ASPG(A, b, lambda_, t, x0):
+    epsilon = 1e-6 # stopping criterion
     x = x0
-    alpha=np.linalg.norm(A.T @ A,2)
-    
+    alpha = np.linalg.norm(A.T @ A, 2)
+    t = t * 0.99
     n = len(x)
     s = lambda_ / t
-    #hzt = np.sum(np.maximum(x - t, 0) + np.maximum(0, -x - t))
-    #FO_rho = np.linalg.norm(A @ x - b)**2 / 2 + s * (np.linalg.norm(x, 1) - hzt)
-    #alpha = 1
-    x_old=copy.deepcopy(x)
-    t1=1
-    
+    x_old = copy.deepcopy(x)
+    t1 = 1
+
     for iter in range(1000):
-        if iter%5==0:
-            t=np.maximum(t*0.999,1e-8)
-        s = lambda_ / t
-        II= np.zeros(n)
-        #x_i>=nu时d_i=2，x_i<=-nu时II=3，其余II=1
-        II=(x>=t)*1+(x<=-t)*(-1)
-        t2=(np.sqrt(t1**2+2*t1))
-        beta=(t1-1)/t2
-        #z=x_0+beta*(x_0-x_1)
-        z=x+beta*(x-x_old)*np.abs(II)
+        II = np.zeros(n)
+        II = (x >= t) * 1 + (x <= -t) * (-1)
+        t2 = np.sqrt(t1**2 + 2 * t1)
+        beta = (t1 - 1) / t2
+        z = x + beta * (x - x_old) * np.abs(II)
         gf = A.T @ (A @ z - b)
-        w=z-(gf-s*II)/alpha
-        x_old=copy.deepcopy(x)
-        x=np.sign(w)*np.maximum(abs(w)-s/alpha,0)
-        t1=copy.deepcopy(t2)
-        
-        if np.linalg.norm(x-x_old)/(np.maximum(np.linalg.norm(x),1))<epsilon:
+        w = z - (gf - s * II) / alpha
+        x_old = copy.deepcopy(x)
+        x = np.sign(w) * np.maximum(np.abs(w) - s / alpha, 0)
+        t1 = copy.deepcopy(t2)
+
+        if iter > 1 and np.linalg.norm(x - x_old) / np.linalg.norm(x_old) < epsilon:
             break
-        
+
     return x
 ####################################定义HA########################################################################
 def HA(A, b, lambda_, t, x0):
