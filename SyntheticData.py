@@ -26,7 +26,6 @@ def ANPG(A, b, lambda_, t, x0):
         #每5次迭代减小t
         if iter%5==0:
             t=np.maximum(t*0.999,0.0002)
-        t=np.maximum(t*0.9999,0.0002)
         s = lambda_ / t
         II= np.zeros(n)
         #x_i>=nu时d_i=2，x_i<=-nu时II=3，其余II=1
