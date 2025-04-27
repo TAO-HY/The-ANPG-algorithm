@@ -62,10 +62,6 @@ ucr_datasets = UCR_UEA_datasets()
 # List of datasets to be evaluated
 datasets = ["MoteStrain", "GunPoint","Coffee","ECGFiveDays","ECG200","ToeSegmentation1","BirdChicken","ShapeletSim"
              ]
-#"MoteStrain", "ECGFiveDays", "GunPoint","ShapeletSim", "Herring","Lightning2", "ECG200",
-
-#, "Wine", "ToeSegmentation1", "ToeSegmentation2","Coffee", "BirdChicken", "Lightning2", "ECG200"
-# Algorithms to be evaluated
 algorithms = {
     'ANPG': ANPG,
     #'HA': HA,
@@ -128,7 +124,6 @@ def evaluate_algorithms(X_train, y_train, X_test, y_test, algorithms,lambda_):
 
 # Main loop to go through each dataset
 i=0
-#Lambda=[0.002,0.2,0.01,0.09,0.1,0.2,0.5,0.1]
 
 Lambda=[ 9.00e-08,3.00e-10,1.00e-9,2.00e-08,7.00e-08, 2.00e-07,7.00e-08,1.00e-06]
 for dataset in datasets:
