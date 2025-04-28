@@ -7,12 +7,15 @@ from sklearn.model_selection import train_test_split
 from scipy.linalg import norm
 
 ####################################定义ANPG########################################################################
-def ASPG(A, b, lambda_, t, x0):
+def ANPG(A, b, lambda_, t, x0):
     epsilon = 1e-6 # stopping criterion
     x = x0
     alpha = np.linalg.norm(A.T @ A, 2)
+    #t = t * 0.99
     n = len(x)
     s = lambda_ / t
+    hzt = np.sum(np.maximum(x - t, 0) + np.maximum(0, -x - t))
+    FO_rho = np.linalg.norm(A @ x - b)**2 / 2 + s * (np.linalg.norm(x, 1) - hzt)
     x_old = copy.deepcopy(x)
     t1 = 1
 
@@ -31,8 +34,12 @@ def ASPG(A, b, lambda_, t, x0):
         x = np.sign(w) * np.maximum(np.abs(w) - s / alpha, 0)
         t1 = copy.deepcopy(t2)
 
-        if  np.linalg.norm(x - x_old) / (np.maximum(np.linalg.norm(x),1)) < epsilon:
+        hzt = np.sum(np.maximum(x - t, 0) + np.maximum(0, -x - t))
+        F_rho = np.linalg.norm(A @ x - b)**2 / 2 + s * (np.linalg.norm(x, 1) - hzt)
+        TERM = FO_rho - F_rho
+        if np.abs(TERM) < epsilon:
             break
+        FO_rho = F_rho
 
     return x
 ####################################定义HA########################################################################
