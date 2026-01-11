@@ -114,7 +114,8 @@ $$
 
 ## 2.4 Running the Logistic Regression Experiments
 
-Download the dataset from the logistic_regression/data/ to your local machine.
+Download the datasets from the following Google Drive link and save it to your local machine:
+https://drive.google.com/file/d/13zEzn52raU8pY4vLZ_GgG3U1Z9RNwFJJ/view?usp=sharing
 
 Set the project root:
 
