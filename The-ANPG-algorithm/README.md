@@ -5,7 +5,6 @@
 ├── compare_SPG.py
 ├── main_experiment_contaminated.py
 ├── logistic_regression/
-│   ├── data/
 │   ├── logistic_regression_algorithms.py
 │   └── main.py
 └── README.md
