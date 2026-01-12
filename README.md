@@ -61,7 +61,7 @@ and $x^*$ is a sparse ground truth. In the experiment, 10% of the entries in $b$
 | :-------------------- | :---------------------- | :---------------------- | :------------------ |
 | Capped– $l_1$-LAD   | **ANPG (proposed)**     | $\frac{1}{m}\|Ax-b\|_1$ | Capped–$l_1$     |
 | LAD-LASSO             | sklearn solver          | $\frac{1}{m}\|Ax-b\|_1$ | $\|x\|_1$           |
-| Capped–$l_1$-CS    | HA algorithm [1]        | $\frac{1}{2}\|Ax-b\|_2^2$ | Capped–$\l_1$     |
+| Capped– $\ell_1$-CS    | HA algorithm [1]        | $\frac{1}{2}\|Ax-b\|_2^2$ | Capped–$\l_1$     |
 | $L_{1/2}$-CS          | $\text{IHT}_{1/2}$ algorithm [4] | $\frac{1}{2}\|Ax-b\|_2^2$ | $\|x\|_{1/2}^{1/2}$ |
 | $L_0$-CS              | NL0R algorithm [5]      | $\frac{1}{2}\|Ax-b\|_2^2$ | $\|x\|_0$           |
 | LASSO                 | sklearn solver          | $\frac{1}{2}\|Ax-b\|_2^2$ | $\|x\|_1$           |
