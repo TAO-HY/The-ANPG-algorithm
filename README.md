@@ -148,7 +148,7 @@ Nonmonotone enhanced proximal DC algorithms for a class of structured nonsmooth 
 *SIAM Journal on Optimization*, 29(4), 2725–2752.
 
 [4] **Xu, Z., Chang, X., Xu, F., & Zhang, H. (2012).**  
-\(L_{1/2}\) regularization: A thresholding representation theory and a fast solver.  
+$L_{1/2}$ regularization: A thresholding representation theory and a fast solver.  
 *IEEE Transactions on Neural Networks and Learning Systems*, 23(7), 1013–1027.
 
 [5] **Zhou, S., Pan, L., & Xiu, N. (2021).**  
