@@ -30,7 +30,7 @@ $$
 where
 
 $$
-\Phi(x) = \sum_{i=1}^n \min \Big\{ 1, \frac{|x_i|}{\nu} \Big\}, \nu>0.
+\Phi(x) = \sum_{i=1}^n \min \left\{ 1, \frac{|x_i|}{\nu} \right\}, \nu>0.
 $$
 
 and $x^*$ is a sparse ground truth. In the experiment, 10% of the entries in $b$ are contaminated.
