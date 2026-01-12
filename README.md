@@ -32,7 +32,7 @@ $$
 =\sum_{i=1}^n \min\{|x_i|,\ \theta\}.
 \qquad \theta>0,
 $$
-and \(x^*\) is a sparse ground truth. In the experiment, 10% of the entries in \(b\) are contaminated.
+and $x^*$ is a sparse ground truth. In the experiment, 10% of the entries in $b$ are contaminated.
 
 ### Algorithms Comparison
 
