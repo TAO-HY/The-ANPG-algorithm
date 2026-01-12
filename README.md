@@ -24,7 +24,7 @@ We consider the sparse LAD regression problem
 
 $$
 \min_{x \in \mathbb{R}^n} 
-\frac{1}{m} \VertAx - b\Vert_1 + \lambda \, \Phi(x),
+\frac{1}{m} \Vert Ax - b\Vert_1 + \lambda \, \Phi(x),
 $$
 
 where
