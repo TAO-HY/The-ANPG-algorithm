@@ -22,16 +22,17 @@
 
 We consider the sparse LAD regression problem
 
-$
-\min_{x\in\mathbb{R}^n}
-\frac{1}{m}\|Ax-b\|_1 + \lambda\,\Phi(x),
-$
-where 
-$
-\Phi(x)
-=\sum_{i=1}^n \min\Big\{1, |x_i|/\nu\Big\}.
-\qquad \theta>0,
-$
+$$
+\min_{x \in \mathbb{R}^n} 
+\frac{1}{m} \|Ax - b\|_1 + \lambda \, \Phi(x),
+$$
+
+where
+
+$$
+\Phi(x) = \sum_{i=1}^n \min\Big\{ 1, \frac{|x_i|}{\nu} \Big\}, \quad \theta > 0.
+$$
+
 and $x^*$ is a sparse ground truth. In the experiment, 10% of the entries in $b$ are contaminated.
 
 ### Algorithms Comparison
